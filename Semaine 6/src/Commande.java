@@ -50,6 +50,57 @@ public class Commande {
 		}
 	}
 
+	public boolean supprimer(Article a){
+		LigneDeCommande l = new LigneDeCommande(a);
+		if(articles.contains(l)) {
+			for (LigneDeCommande ligne : articles) {
+				if (ligne.equals(l)) {
+					articles.remove(ligne);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean modifierQttArticle(Article a, int qtt){
+		LigneDeCommande l = new LigneDeCommande(a);
+		if(articles.contains(l)) {
+			for (LigneDeCommande ligne : articles) {
+				if (ligne.equals(l)) {
+					ligne.setQuantite(qtt);
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public boolean verif(Article a){
+		LigneDeCommande l = new LigneDeCommande(a);
+		return articles.contains(l);
+	}
+
+	public int verifQttArticle(Article a){
+		LigneDeCommande l = new LigneDeCommande(a);
+		if(articles.contains(l)) {
+			for (LigneDeCommande ligne : articles) {
+				if (ligne.equals(l)) {
+					return ligne.getQuantite();
+				}
+			}
+		}
+		return 0;
+	}
+
+	public ArrayList<Article> listeArticle(){
+		ArrayList<Article> art = new ArrayList<>();
+		for (LigneDeCommande ligne: articles) {
+			art.add(ligne.getArticle());
+		}
+		return art;
+	}
+
 	public double calculerPrixTotal(){
 		double prixTotal = 0;
 		for (LigneDeCommande l: articles) {

@@ -9,7 +9,6 @@ public class TestCommande {
 					"lapierre tandem route 2 race fit",
 					"le vélo tandem, ludique, convivial et performant", 1785,
 					23);
-		//TODO à compléter
 
 		Commande commande1 = new Commande();
 		Commande commande2 = new Commande();
@@ -20,6 +19,26 @@ public class TestCommande {
 
 		System.out.println(commande1);
 		System.out.println(commande2);
+
+		System.out.println();
+		System.out.println(commande1.listeArticle());
+
+		commande1.supprimer(article2);
+		System.out.println(commande1);
+
+		commande1.modifierQttArticle(article1, 8);
+		System.out.println(commande1);
+
+		System.out.println(commande1.verif(article2));
+		System.out.println(commande1.verif(article1));
+
+		System.out.println(commande1.verifQttArticle(article1));
+		System.out.println(commande1.verifQttArticle(article2));
+
+		System.out.println();
+		System.out.println(commande1.listeArticle());
+
+
 	}
 
 }
