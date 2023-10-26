@@ -71,8 +71,7 @@ public class Livre {
 	}
 
 	public int hashCode(){
-		int hash = Integer.parseInt(isbn);
-		return hash;
+		return Integer.parseInt(isbn);
 	}
 	
 }
