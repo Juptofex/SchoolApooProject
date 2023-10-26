@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class Livre {
 	private String isbn;
@@ -67,11 +67,11 @@ public class Livre {
 		if (o == null) return false;
 		if (this.getClass() != o.getClass()) return false;
 		Livre livre = (Livre) o;
-		return this.isbn == livre.isbn; // TODO Change to use hashcode
+		return this.isbn.equals(livre.isbn); // TODO Change to use hashcode
 	}
 
 	public int hashCode(){
-		return isbn.hashCode();
+		return Objects.hash(isbn);
 	}
 	
 }

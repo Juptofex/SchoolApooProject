@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Article {
 	private String reference;
@@ -65,7 +66,7 @@ public class Article {
 	}
 
 	public int hashCode(){
-		return reference.hashCode();
+		return Objects.hash(reference);
 	}
 
 }

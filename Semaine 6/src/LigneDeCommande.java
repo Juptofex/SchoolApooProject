@@ -33,6 +33,6 @@ public class LigneDeCommande {
         if (o == null) return false;
         if (this.getClass() != o.getClass()) return false;
         LigneDeCommande ligne = (LigneDeCommande) o;
-        return this.article.getReference() == ligne.article.getReference(); ////TODO Do the hashcode correctly
+        return this.article.getReference().equals(ligne.article.getReference()); //TODO Do the hashcode correctly
     }
 }
