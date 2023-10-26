@@ -65,7 +65,7 @@ public class Article {
 	}
 
 	public int hashCode(){
-		return Integer.parseInt(reference);
+		return reference.hashCode();
 	}
-	
+
 }

@@ -67,11 +67,11 @@ public class Livre {
 		if (o == null) return false;
 		if (this.getClass() != o.getClass()) return false;
 		Livre livre = (Livre) o;
-		return this.isbn == livre.isbn;
+		return this.isbn == livre.isbn; // TODO Change to use hashcode
 	}
 
 	public int hashCode(){
-		return Integer.parseInt(isbn);
+		return isbn.hashCode();
 	}
 	
 }

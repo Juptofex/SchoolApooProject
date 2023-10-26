@@ -15,8 +15,11 @@ public class TestCommande {
 		Commande commande2 = new Commande();
 		commande1.ajouter(article1);
 		commande1.ajouter(article2);
-		commande1.ajouter(article1);
+		commande1.ajouter(article1, 3);
 		commande2.ajouter(article2);
+
+		System.out.println(commande1);
+		System.out.println(commande2);
 	}
 
 }

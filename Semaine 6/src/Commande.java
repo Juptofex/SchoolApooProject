@@ -3,33 +3,57 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 public class Commande {
-	private ArrayList<Article> articles;
+	private ArrayList<LigneDeCommande> articles;
 	private LocalDate date;
 	
 	public Commande(){
 		date = LocalDate.now();
-		articles = new ArrayList<Article>();
+		articles = new ArrayList<>();
 	}
 	
 	public String toString(){
 		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
 		String infosCommande = date.format(formatter)+" \n";
 
-		for (Article a: articles) {
-			infosCommande +="\n"+a;
+		for (LigneDeCommande l: articles) {
+			infosCommande +="\n"+l;
 		}
 		infosCommande += "\n"+ "PRIX TOTAL = "+calculerPrixTotal();
 		return infosCommande;
 	}
 
 	public void ajouter(Article a){
-		articles.add(a);
+		LigneDeCommande l = new LigneDeCommande(a);
+		if(articles.contains(l)){
+			for (LigneDeCommande ligne: articles) {
+				if (ligne.equals(l)){
+					int q = ligne.getQuantite()+1;
+					ligne.setQuantite(q);
+				}
+			}
+		}else {
+			articles.add(l);
+		}
+	}
+
+	public void ajouter(Article a, int qtt){
+		LigneDeCommande l = new LigneDeCommande(a);
+		if(articles.contains(l)){
+			for (LigneDeCommande ligne: articles) {
+				if (ligne.equals(l)){
+					int q = ligne.getQuantite()+qtt;
+					ligne.setQuantite(q);
+				}
+			}
+		}else {
+			articles.add(l);
+		}
 	}
 
 	public double calculerPrixTotal(){
 		double prixTotal = 0;
-		for (Article a: articles) {
-			prixTotal += a.calculerPrixTVAComprise();
+		for (LigneDeCommande l: articles) {
+			prixTotal += l.prixTotal();
 		}
 		return prixTotal;
 	}
