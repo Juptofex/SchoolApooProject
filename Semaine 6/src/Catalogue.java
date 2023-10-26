@@ -40,9 +40,9 @@ public class Catalogue {
         return liste.size() == 0;
     }
 
-    public String chercherLivre(String isbn){
+    public Livre chercherLivre(String isbn){
         for (Livre l: liste) {
-            if (l.getIsbn() == isbn) return l.toString();
+            if (l.getIsbn().equals(isbn)) return l;
         }
         return null;
     }
