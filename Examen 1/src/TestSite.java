@@ -8,8 +8,8 @@ public class TestSite {
         } catch (IllegalArgumentException iae) {
             System.out.println("Paramètre invalide");
         }
-
         Film avengers = new Film("The Avengers", "action", 143);
+        System.out.println(superContent);
         superContent.ajouter(endgame);
         superContent.ajouter(bigbang);
         superContent.ajouter(avengers);

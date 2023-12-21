@@ -32,7 +32,7 @@ public class Site {
     @Override
     public String toString() {
         if (contenusVideos.isEmpty()) {
-            return "Site [url="+url+"]"+"\nListe de contenus vidéos \n Aucun contebu vidéo";
+            return "Site [url="+url+"]"+"\nListe de contenus vidéos \n Aucun contenu vidéo";
         }
         String text="Site [url="+url+"]"+"\nListe de contenus vidéos";
         for (ContenuVideo contenusVideo : contenusVideos) {
